@@ -19,7 +19,7 @@ const PromotionalFooter: React.FC = () => {
               <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Rising Education
               </h2>
-              <p className="text-lg text-gray-600 font-medium">Experts in MHT-CET Preparation</p>
+              <p className="text-lg text-gray-600 font-medium">Engineering Counseling Experts</p>
             </div>
           </div>
           <div className="flex gap-3">

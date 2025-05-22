@@ -130,7 +130,7 @@ function App() {
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
               <Calculator className="h-6 w-6 text-blue-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">Percentile Calculator</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Percentile Predictor</h2>
           </div>
 
           <div className="space-y-8">
@@ -305,9 +305,9 @@ function App() {
 
         <div className="bg-white rounded-2xl shadow-xl p-8 mt-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get Latest Updates on Engineering Admission</h2>
             <p className="text-gray-600">
-              Reach out to us for any queries or join our community for updates!
+              Join our WhatsApp Group & Telegram Channel!
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
