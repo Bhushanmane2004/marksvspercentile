@@ -234,17 +234,20 @@ function App() {
                 >
                   Join Telegram
                 </a>
-                <button
-                  onClick={() => setShowForm(true)}
-                  className="inline-block bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 shadow-md"
-                >
-                  Make an Enquiry
-                </button>
+               <a
+  href="https://wa.me/message/52KTQQGRJYXBI1"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+>
+  Make an Enquiry
+</a>
+
               </div>
             </div>
             <div className="md:w-1/2">
               <img
-                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
+                src="./banner.jpg"
                 alt="Engineering Students"
                 className="rounded-xl shadow-lg w-full object-cover h-64"
               />
