@@ -10,7 +10,7 @@ const PromotionalFooter: React.FC = () => {
           <div className="flex items-center gap-4">
             <div className="w-20 h-20 bg-white rounded-xl shadow-sm p-3 flex items-center justify-center">
               <img
-                src="/RE.webp"
+                src="https://res.cloudinary.com/dar6mcvkm/image/upload/v1747934039/RE_it0tqg.webp"
                 alt="Rising Education Logo"
                 className="w-full h-full object-contain mix-blend-multiply"
               />

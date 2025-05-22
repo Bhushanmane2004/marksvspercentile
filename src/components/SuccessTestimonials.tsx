@@ -1,8 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const imageCount = 23;
-const imagePaths = Array.from({ length: imageCount }, (_, i) => `/${i + 1}.jpg`);
+const imagePaths = [
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933784/1_pk4fgn.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933784/11_c1ronp.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933784/20_bonux6.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933784/12_w3qwuk.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933785/10_ux2h4n.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933786/21_fb7ocl.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933786/2_wjwkkh.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933786/14_gpsibx.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933786/13_b0oqbc.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933786/15_hop3xz.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933787/22_lxjpfh.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933787/16_wpjccs.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933787/17_tun0wq.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933789/6_uw3i6y.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933789/5_gz7gv5.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933790/9_c2bqx2.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933790/7_yoddso.jpg",
+  "https://res.cloudinary.com/dar6mcvkm/image/upload/v1747933791/8_yokiij.jpg",
+];
 
 const SuccessTestimonials: React.FC = () => {
   const [current, setCurrent] = useState(0);
@@ -10,12 +28,15 @@ const SuccessTestimonials: React.FC = () => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const visibleCount = isMobile ? 1 : 2;
 
+  // Since only 3 images, adjust max current index accordingly
+  const maxIndex = imagePaths.length - visibleCount;
+
   const next = () => {
-    setCurrent((prev) => (prev + 1) % (imagePaths.length - visibleCount + 1));
+    setCurrent((prev) => (prev + 1) > maxIndex ? 0 : prev + 1);
   };
 
   const prev = () => {
-    setCurrent((prev) => (prev - 1 + (imagePaths.length - visibleCount + 1)) % (imagePaths.length - visibleCount + 1));
+    setCurrent((prev) => (prev - 1) < 0 ? maxIndex : prev - 1);
   };
 
   useEffect(() => {
@@ -28,7 +49,7 @@ const SuccessTestimonials: React.FC = () => {
   return (
     <div className="w-full md:w-4/5 mx-auto bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-md p-6 mt-8">
       <h2 className="text-xl font-bold text-center text-gray-900 mb-8">
-      Our Counseling Success Stories
+        Our Counseling Success Stories
       </h2>
 
       <div className="relative">
@@ -69,7 +90,7 @@ const SuccessTestimonials: React.FC = () => {
       </div>
 
       <div className="flex justify-center mt-6 gap-2">
-        {Array.from({ length: imagePaths.length - visibleCount + 1 }).map((_, index) => (
+        {Array.from({ length: maxIndex + 1 }).map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}

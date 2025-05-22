@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import {
-  BarChart,
   Calculator,
-  TrendingUp,
-  Award,
   Users,
-  BookOpen,
   Smartphone,
   LogIn,
   Store,
@@ -17,7 +13,7 @@ import percentileData from "./data/percentileData";
 import PromotionalBanner from "./components/PromotionalBanner";
 import PromotionalFooter from "./components/PromotionalFooter";
 import SuccessTestimonials from "./components/SuccessTestimonials";
-import PercentileChart from "./components/PercentileChart";
+
 
 type DifficultyLevel = "Easy" | "Moderate" | "Difficult";
 
@@ -98,7 +94,7 @@ function App() {
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 bg-gray-100 rounded-xl shadow-sm flex items-center justify-center p-2">
                 <img
-                  src="/RE.webp"
+                  src="https://res.cloudinary.com/dar6mcvkm/image/upload/v1747934039/RE_it0tqg.webp"
                   alt="Rising Education Logo"
                   className="h-full w-full object-contain"
                 />
@@ -248,7 +244,7 @@ function App() {
             </div>
             <div className="md:w-1/2">
               <img
-                src="./banner.jpg"
+                src="https://res.cloudinary.com/dar6mcvkm/image/upload/v1747934050/banner_aswppl.jpg"
                 alt="Engineering Students"
                 className="rounded-xl shadow-lg w-full object-fit h-64"
               />
