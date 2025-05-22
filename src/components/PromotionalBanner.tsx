@@ -28,7 +28,7 @@ const PromotionalBanner: React.FC = () => {
             Learn More
           </a>
         </div>
-        <div className="text-sm font-semibold text-gray-800 drop-shadow-md w-full text-left">
+        <div className="text-sm md:pl-[300px] font-semibold text-gray-800 drop-shadow-md w-full md:block hidden text-left">
           Enroll Now At Just <span className="font-extrabold">₹1499</span> — Early Bird Offer!
         </div>
         <button
