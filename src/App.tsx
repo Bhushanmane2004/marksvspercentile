@@ -241,9 +241,9 @@ function App() {
             </div>
             <div className="md:w-1/2">
               <img
-                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
+                src="./banner.jpg"
                 alt="Engineering Students"
-                className="rounded-xl shadow-lg w-full object-cover h-64"
+                className="rounded-xl shadow-lg w-full object-fit h-64"
               />
               <div className="bg-white p-6 rounded-xl shadow-lg mt-4">
                 <h4 className="font-semibold text-gray-900 mb-3 text-lg">Features:</h4>
