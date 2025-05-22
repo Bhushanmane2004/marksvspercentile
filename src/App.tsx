@@ -188,7 +188,7 @@ function App() {
             </button>
           </div>
 
-          {percentile !== null && studentDetails && (
+          {studentDetails && percentile !== null && (
             <div className="mt-8 flex flex-col items-center">
               <div
                 className={`w-36 h-36 ${getColor(
@@ -297,7 +297,6 @@ function App() {
                   <div className="text-2xl font-bold text-blue-600 mb-2">Step {index + 1}</div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
                   <p className="text-sm text-gray-600">{step.description}</p>
-                  
                 </div>
               </div>
             ))}

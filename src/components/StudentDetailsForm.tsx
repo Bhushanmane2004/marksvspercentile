@@ -1,4 +1,3 @@
-// src/components/StudentDetailsForm.tsx
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { db } from '../firebase';
@@ -8,19 +7,19 @@ export interface StudentDetails {
   name: string;
   mobile: string;
   email: string;
-  twelfthPercentile: string;
-  score?: number; // Optional: to store the exam score
-  difficulty?: string; // Optional: to store the difficulty level
-  percentile?: number; // Optional: to store the calculated percentile
+  twelfthPercentage: number; // Changed to number
+  score?: number;
+  difficulty?: string;
+  percentile?: number;
 }
 
 interface StudentDetailsFormProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (details: StudentDetails) => void;
-  score?: number; // Pass score from App
-  difficulty?: string; // Pass difficulty from App
-  percentile?: number; // Pass percentile from App
+  score?: number;
+  difficulty?: string;
+  percentile?: number;
 }
 
 const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
@@ -35,34 +34,54 @@ const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
     name: '',
     mobile: '',
     email: '',
-    twelfthPercentile: '',
+    twelfthPercentage: 0, // Initialize as number
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      // Create the complete data object
+      // Validate percentage input
+      const percentage = details.twelfthPercentage;
+      if (isNaN(percentage)) {
+        alert('Please enter a valid 12th percentage (0–100).');
+        return;
+      }
+      if (percentage < 0 || percentage > 100) {
+        alert('12th percentage must be between 0 and 100.');
+        return;
+      }
+
       const completeData = {
         ...details,
+        twelfthPercentage: percentage, // Store as number
         score,
         difficulty,
         percentile,
         timestamp: new Date(),
       };
-      
-      // Debug log
+
       console.log('Saving data:', completeData);
-      
+
       // Save to Firestore
       await addDoc(collection(db, 'students'), completeData);
-      
-      // Call the parent onSubmit to update state
-      onSubmit({ 
-        ...details, 
-        score, 
-        difficulty, 
-        percentile 
+
+      // Call the parent onSubmit
+      onSubmit({
+        ...details,
+        score,
+        difficulty,
+        percentile,
       });
+
+      // Reset form
+      setDetails({
+        name: '',
+        mobile: '',
+        email: '',
+        twelfthPercentage: 0,
+      });
+
+      onClose(); // Close the form after submission
     } catch (error) {
       console.error('Error saving to Firestore:', error);
       alert('Failed to save details. Please try again.');
@@ -73,7 +92,7 @@ const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="w-full max-w-md bg-white rounded-xl p-6 shadow-xl">
+        <Dialog.Panel className="w-full max-w-md bg-white rounded-2xl p-6 shadow-xl">
           <Dialog.Title className="text-xl font-semibold text-gray-900 mb-4">
             Student Details
           </Dialog.Title>
@@ -87,7 +106,7 @@ const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
                 required
                 value={details.name}
                 onChange={(e) => setDetails({ ...details, name: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
               />
             </div>
             <div>
@@ -100,7 +119,7 @@ const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
                 pattern="[0-9]{10}"
                 value={details.mobile}
                 onChange={(e) => setDetails({ ...details, mobile: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 placeholder="10 digit mobile number"
               />
             </div>
@@ -113,7 +132,7 @@ const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
                 required
                 value={details.email}
                 onChange={(e) => setDetails({ ...details, email: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
               />
             </div>
             <div>
@@ -126,23 +145,28 @@ const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
                 min="0"
                 max="100"
                 step="0.01"
-                value={details.twelfthPercentile}
-                onChange={(e) => setDetails({ ...details, twelfthPercentile: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter your 12th Percentage"
+                value={details.twelfthPercentage || ''}
+                onChange={(e) =>
+                  setDetails({
+                    ...details,
+                    twelfthPercentage: parseFloat(e.target.value) || 0,
+                  })
+                }
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                placeholder="Enter your 12th percentage"
               />
             </div>
             <div className="flex justify-end space-x-3 pt-4">
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md"
+                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-all duration-200 shadow-md"
               >
                 Submit
               </button>
