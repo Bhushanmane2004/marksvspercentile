@@ -28,7 +28,7 @@ const SuccessTestimonials: React.FC = () => {
   return (
     <div className="w-full md:w-4/5 mx-auto bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-md p-6 mt-8">
       <h2 className="text-xl font-bold text-center text-gray-900 mb-8">
-        Our MHT-CET Success Stories
+      Our Counseling Success Stories
       </h2>
 
       <div className="relative">

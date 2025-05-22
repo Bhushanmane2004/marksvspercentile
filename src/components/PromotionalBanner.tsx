@@ -13,9 +13,9 @@ const PromotionalBanner: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
           <span className="font-bold">MHT-CET 2025 Preparation</span>
           <span className="hidden md:inline">|</span>
-          <span>Early bird enrollment open for Rising Education's MHT-CET courses!</span>
+          <span>Maharashtra's most trusted counselling batch 5.o is live! Enroll now at just ₹1499 — early bird offer!</span>
           <a 
-            href="https://www.risingeducation.com/mhtcet" 
+            href="https://www.risingeducation.in/courses"
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-white text-orange-600 px-4 py-1 rounded-full font-medium text-sm hover:bg-gray-100 transition-colors"

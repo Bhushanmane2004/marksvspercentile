@@ -118,7 +118,7 @@ const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                12th percentage
+                12th Percentage
               </label>
               <input
                 type="number"
@@ -129,7 +129,7 @@ const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
                 value={details.twelfthPercentile}
                 onChange={(e) => setDetails({ ...details, twelfthPercentile: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter your 12th percentage"
+                placeholder="Enter your 12th Percentage"
               />
             </div>
             <div className="flex justify-end space-x-3 pt-4">
