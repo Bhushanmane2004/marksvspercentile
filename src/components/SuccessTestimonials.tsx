@@ -1,57 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-interface Testimonial {
-  id: number;
-  name: string;
-  rank: string;
-  year: number;
-  quote: string;
-  college: string;
-}
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    name: "Aditya Sharma",
-    rank: "AIR 27",
-    year: 2024,
-    quote: "Rising Education's MHT-CET prep course was instrumental in my success.",
-    college: "COEP Pune"
-  },
-  {
-    id: 2,
-    name: "Priya Deshmukh",
-    rank: "AIR 42",
-    year: 2024,
-    quote: "Unique strategies and daily practice helped me achieve my dream rank.",
-    college: "VJTI Mumbai"
-  },
-  {
-    id: 3,
-    name: "Rahul Patil",
-    rank: "AIR 56",
-    year: 2024,
-    quote: "Faculty gave personal attention and feedback that made the difference.",
-    college: "SPIT Mumbai"
-  },
-  {
-    id: 4,
-    name: "Sneha Joshi",
-    rank: "AIR 83",
-    year: 2024,
-    quote: "From average to top ranks — the study material was top-notch!",
-    college: "WCE Sangli"
-  },
-  {
-    id: 5,
-    name: "Vikas Kumar",
-    rank: "AIR 95",
-    year: 2024,
-    quote: "The YouTube channel got me started, and I joined the full course!",
-    college: "GCOEA Amravati"
-  }
-];
+const imageCount = 23;
+const imagePaths = Array.from({ length: imageCount }, (_, i) => `/${i + 1}.jpg`);
 
 const SuccessTestimonials: React.FC = () => {
   const [current, setCurrent] = useState(0);
@@ -60,11 +11,11 @@ const SuccessTestimonials: React.FC = () => {
   const visibleCount = isMobile ? 1 : 2;
 
   const next = () => {
-    setCurrent((prev) => (prev + 1) % (testimonials.length - visibleCount + 1));
+    setCurrent((prev) => (prev + 1) % (imagePaths.length - visibleCount + 1));
   };
 
   const prev = () => {
-    setCurrent((prev) => (prev - 1 + (testimonials.length - visibleCount + 1)) % (testimonials.length - visibleCount + 1));
+    setCurrent((prev) => (prev - 1 + (imagePaths.length - visibleCount + 1)) % (imagePaths.length - visibleCount + 1));
   };
 
   useEffect(() => {
@@ -86,25 +37,17 @@ const SuccessTestimonials: React.FC = () => {
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${(100 / visibleCount) * current}%)` }}
           >
-            {testimonials.map((testimonial) => (
+            {imagePaths.map((path, index) => (
               <div
-                key={testimonial.id}
+                key={index}
                 className={`w-full ${visibleCount === 2 ? 'md:w-1/2' : 'w-full'} px-4 flex-shrink-0`}
               >
-                <div className="bg-white rounded-xl shadow-sm p-6 relative h-full">
-                  <Quote className="absolute top-4 left-4 h-6 w-6 text-blue-100" />
-                  <div className="text-center">
-                    <p className="text-gray-700 italic mb-6 mt-4 relative z-10 text-base md:text-lg">
-                      "{testimonial.quote}"
-                    </p>
-                    <div className="border-t border-gray-100 pt-4">
-                      <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                      <p className="text-blue-600 font-bold mt-1">{testimonial.rank}</p>
-                      <p className="text-sm text-gray-500 mt-1">
-                        {testimonial.college} | MHT-CET {testimonial.year}
-                      </p>
-                    </div>
-                  </div>
+                <div className="bg-white rounded-xl shadow-sm p-4 h-full flex items-center justify-center">
+                  <img
+                    src={path}
+                    alt={`Testimonial ${index + 1}`}
+                    className="rounded-md max-h-96 object-contain"
+                  />
                 </div>
               </div>
             ))}
@@ -126,7 +69,7 @@ const SuccessTestimonials: React.FC = () => {
       </div>
 
       <div className="flex justify-center mt-6 gap-2">
-        {Array.from({ length: testimonials.length - visibleCount + 1 }).map((_, index) => (
+        {Array.from({ length: imagePaths.length - visibleCount + 1 }).map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
