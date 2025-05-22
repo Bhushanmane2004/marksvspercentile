@@ -103,7 +103,7 @@ const PromotionalFooter: React.FC = () => {
           </a>
 
           <a
-            href="tel:+919876543210"
+            href="tel:+919665021534 "
             className="group bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-200 transition-all duration-300 text-center w-full max-w-sm"
           >
             <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">

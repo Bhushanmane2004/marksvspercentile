@@ -353,10 +353,10 @@ function App() {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Contact Number</h3>
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+919665021534 "
                     className="text-blue-600 hover:underline"
                   >
-                    +91 98765 43210
+                    +91 9665021534 
                   </a>
                 </div>
               </div>
