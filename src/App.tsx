@@ -232,12 +232,19 @@ function App() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="#"
+                  href="https://www.risingeducation.in/courses/663487"
                   className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200 shadow-md"
                 >
                   Join Now
                 </a>
+                {/* <a
+                  href="#"
+                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200 shadow-md"
+                >
+                  Play Store
+                </a> */}
               </div>
+              
             </div>
             <div className="md:w-1/2">
               <img
