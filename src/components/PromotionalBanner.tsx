@@ -1,6 +1,5 @@
-// src/components/PromotionalBanner.tsx
 import React, { useState } from 'react';
-import { CheckCircle, Calendar, Clock, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const PromotionalBanner: React.FC = () => {
   const [dismissed, setDismissed] = useState(false);
@@ -8,27 +7,36 @@ const PromotionalBanner: React.FC = () => {
   if (dismissed) return null;
 
   return (
-    <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white py-3 relative">
-      <div className="max-w-5xl mx-auto px-4 flex items-center justify-center">
-        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
-          <span className="font-bold">MHT-CET 2025 Preparation</span>
-          <span className="hidden md:inline">|</span>
-          <span>Maharashtra's most trusted counselling batch 5.o is live! Enroll now at just ₹1499 — early bird offer!</span>
-          <a 
+    <div className="bg-gradient-to-r from-yellow-400 to-orange-500 py-4 relative shadow-md">
+      <div className="max-w-5xl mx-auto px-4 flex flex-col items-center justify-center gap-3 text-center">
+        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 w-full">
+          <div className="flex-1 text-left">
+            <span className="font-extrabold text-lg text-gray-800 drop-shadow-md">
+              MHT-CET 2025 Preparation
+            </span>
+            <span className="hidden md:inline mx-2 text-gray-800 drop-shadow-md">|</span>
+            <span className="text-base font-semibold text-gray-800 drop-shadow-md">
+              Maharashtra's Most Trusted Counselling Batch 5.0 Is Live!
+            </span>
+          </div>
+          <a
             href="https://www.risingeducation.in/courses"
-            target="_blank" 
+            target="_blank"
             rel="noopener noreferrer"
-            className="bg-white text-orange-600 px-4 py-1 rounded-full font-medium text-sm hover:bg-gray-100 transition-colors"
+            className="bg-white text-orange-600 px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-100 transition-all duration-200 shadow-md"
           >
             Learn More
           </a>
         </div>
-        <button 
+        <div className="text-sm font-semibold text-gray-800 drop-shadow-md w-full text-left">
+          Enroll Now At Just <span className="font-extrabold">₹1499</span> — Early Bird Offer!
+        </div>
+        <button
           onClick={() => setDismissed(true)}
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/80 hover:text-white"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-800/80 hover:text-gray-800 transition-all duration-200"
           aria-label="Dismiss"
         >
-          <X size={18} />
+          <X size={20} />
         </button>
       </div>
     </div>

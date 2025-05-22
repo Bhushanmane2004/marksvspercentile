@@ -10,10 +10,9 @@ import {
   LogIn,
   Store,
   CreditCard,
+  Phone,
 } from "lucide-react";
-import StudentDetailsForm, {
-  StudentDetails,
-} from "./components/StudentDetailsForm";
+import StudentDetailsForm, { StudentDetails } from "./components/StudentDetailsForm";
 import percentileData from "./data/percentileData";
 import PromotionalBanner from "./components/PromotionalBanner";
 import PromotionalFooter from "./components/PromotionalFooter";
@@ -27,9 +26,7 @@ function App() {
   const [difficulty, setDifficulty] = useState<DifficultyLevel>("Easy");
   const [percentile, setPercentile] = useState<number | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [studentDetails, setStudentDetails] = useState<StudentDetails | null>(
-    null
-  );
+  const [studentDetails, setStudentDetails] = useState<StudentDetails | null>(null);
 
   const handleScoreChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value ? parseInt(e.target.value) : null;
@@ -68,11 +65,9 @@ function App() {
     {
       icon: <Smartphone className="w-6 h-6" />,
       title: "Download App",
-      description:
-        "Get the Rising Education app from the Play Store or App Store, or visit our website.",
+      description: "Get the Rising Education app from the Play Store or App Store, or visit our website.",
       stores: {
-        playStore:
-          "https://play.google.com/store/apps/details?id=com.risingeducation",
+        playStore: "https://play.google.com/store/apps/details?id=com.risingeducation",
         appStore: "https://apps.apple.com/app/rising-education/id123456789",
       },
     },
@@ -84,8 +79,7 @@ function App() {
     {
       icon: <Store className="w-6 h-6" />,
       title: "Select Package",
-      description:
-        "Choose the Personal Counseling 2025 package from our store.",
+      description: "Choose the Personal Counseling 2025 package from our store.",
     },
     {
       icon: <CreditCard className="w-6 h-6" />,
@@ -136,9 +130,7 @@ function App() {
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
               <Calculator className="h-6 w-6 text-blue-600" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">
-              Percentile Calculator
-            </h2>
+            <h2 className="text-2xl font-bold text-gray-900">Percentile Calculator</h2>
           </div>
 
           <div className="space-y-8">
@@ -147,22 +139,20 @@ function App() {
                 Select Difficulty Level
               </label>
               <div className="grid grid-cols-3 gap-4">
-                {(["Easy", "Moderate", "Difficult"] as DifficultyLevel[]).map(
-                  (level) => (
-                    <button
-                      key={level}
-                      type="button"
-                      onClick={() => setDifficulty(level)}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                        difficulty === level
-                          ? "bg-blue-600 text-white shadow-md"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
-                      }`}
-                    >
-                      {level}
-                    </button>
-                  )
-                )}
+                {(["Easy", "Moderate", "Difficult"] as DifficultyLevel[]).map((level) => (
+                  <button
+                    key={level}
+                    type="button"
+                    onClick={() => setDifficulty(level)}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      difficulty === level
+                        ? "bg-blue-600 text-white shadow-md"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
+                    }`}
+                  >
+                    {level}
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -205,12 +195,13 @@ function App() {
                   percentile
                 )} rounded-full flex items-center justify-center mb-4 transition-all duration-500 transform hover:scale-105 shadow-lg`}
               >
-                <span className="text-4xl font-bold text-white">
-                  {percentile}%
-                </span>
+                <span className="text-4xl font-bold text-white">{percentile}%</span>
               </div>
-              <p className="text-sm text-gray-600 font-medium">
+              <p className="text-sm text-gray-600 font-medium mb-2">
                 Your percentile rank at {difficulty} difficulty level
+              </p>
+              <p className="text-sm text-gray-600 italic text-center">
+                This percentile is based on our prediction. Your final percentile will be as per the official MHT-CET result.
               </p>
             </div>
           )}
@@ -220,23 +211,19 @@ function App() {
           <div className="flex flex-col md:flex-row items-start gap-8">
             <div className="md:w-1/2 space-y-6">
               <div>
-                <h3 className="text-3xl font-bold text-white mb-2">
-                  Get Into Your
-                </h3>
+                <h3 className="text-3xl font-bold text-white mb-2">Get Into Your</h3>
                 <h2 className="text-5xl font-extrabold text-white mb-4 tracking-tight">
                   Dream Engineering College!
                 </h2>
               </div>
               <div className="space-y-4 text-gray-300">
                 <p className="text-lg">
-                  Maharashtra's Most Trusted Counseling for Engineering
-                  Aspirants!
+                  Maharashtra's Most Trusted Counseling for Engineering Aspirants!
                 </p>
                 <p>
-                  We guide students to secure admissions in top engineering
-                  colleges across Pune, Mumbai, and Maharashtra. From CAP
-                  registration to option form filling and live expert sessions —
-                  we handle it all!
+                  We guide students to secure admissions in top engineering colleges
+                  across Pune, Mumbai, and Maharashtra. From CAP registration to
+                  option form filling and live expert sessions — we handle it all!
                 </p>
                 <p>
                   Get personalized support, region-wise college lists, and
@@ -250,62 +237,31 @@ function App() {
                 >
                   Join Now
                 </a>
-                <a
-                  href="https://chat.whatsapp.com/your-group-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-200 shadow-md"
-                >
-                  Join WhatsApp Community
-                </a>
-                <a
-                  href="https://t.me/your-telegram-group"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-[#0088cc] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#0077b5] transition-all duration-200 shadow-md"
-                >
-                  Join Telegram
-                </a>
-                <a
-                  href="https://wa.me/message/52KTQQGRJYXBI1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                >
-                  Make an Enquiry
-                </a>
               </div>
             </div>
             <div className="md:w-1/2">
               <img
-                src="./banner.jpg"
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
                 alt="Engineering Students"
-                className="rounded-xl shadow-lg w-full object-fit h-64"
+                className="rounded-xl shadow-lg w-full object-cover h-64"
               />
               <div className="bg-white p-6 rounded-xl shadow-lg mt-4">
-                <h4 className="font-semibold text-gray-900 mb-3 text-lg">
-                  Features:
-                </h4>
+                <h4 className="font-semibold text-gray-900 mb-3 text-lg">Features:</h4>
                 <ul className="grid grid-cols-2 gap-3">
                   <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <span className="text-green-500">✓</span> Best Engineering
-                    College List
+                    <span className="text-green-500">✓</span> Best Engineering College List
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <span className="text-green-500">✓</span> Region Wise
-                    College List
+                    <span className="text-green-500">✓</span> Region Wise College List
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <span className="text-green-500">✓</span> CAP Registration
-                    Help
+                    <span className="text-green-500">✓</span> CAP Registration Help
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <span className="text-green-500">✓</span> Documentation
-                    Process
+                    <span className="text-green-500">✓</span> Documentation Process
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-600">
-                    <span className="text-green-500">✓</span> Option Form
-                    Filling
+                    <span className="text-green-500">✓</span> Option Form Filling
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-600">
                     <span className="text-green-500">✓</span> Live Sessions
@@ -313,9 +269,7 @@ function App() {
                 </ul>
                 <div className="mt-4 flex items-center justify-between">
                   <div className="text-2xl font-bold text-blue-600">₹1499</div>
-                  <span className="text-sm text-gray-500">
-                    Early Bird Offer
-                  </span>
+                  <span className="text-sm text-gray-500">Early Bird Offer</span>
                 </div>
               </div>
             </div>
@@ -324,9 +278,7 @@ function App() {
 
         <div className="bg-white rounded-2xl shadow-xl p-8 mt-8">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              How to Enroll
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">How to Enroll</h2>
             <p className="text-gray-600">
               Follow these simple steps to start your counseling journey
             </p>
@@ -342,17 +294,89 @@ function App() {
                   <div className="text-blue-600">{step.icon}</div>
                 </div>
                 <div className="relative">
-                  <div className="text-2xl font-bold text-blue-600 mb-2">
-                    Step {index + 1}
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {step.title}
-                  </h3>
+                  <div className="text-2xl font-bold text-blue-600 mb-2">Step {index + 1}</div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
                   <p className="text-sm text-gray-600">{step.description}</p>
+                  
                 </div>
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-xl p-8 mt-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h2>
+            <p className="text-gray-600">
+              Reach out to us for any queries or join our community for updates!
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                  alt="WhatsApp Logo"
+                  className="w-8 h-8"
+                />
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">WhatsApp Community</h3>
+                  <a
+                    href="https://chat.whatsapp.com/KgfM0J3gPJd7QFhzJXUGsq"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    Join our WhatsApp Community
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+                  alt="Telegram Logo"
+                  className="w-8 h-8"
+                />
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Telegram Group</h3>
+                  <a
+                    href="https://t.me/risingeducation2023"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    Join our Telegram Group
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <Phone className="w-8 h-8 text-blue-600" />
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Contact Number</h3>
+                  <a
+                    href="tel:+919876543210"
+                    className="text-blue-600 hover:underline"
+                  >
+                    +91 98765 43210
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Have a Query?</h3>
+              <a
+                href="https://wa.me/message/52KTQQGRJYXBI1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200 shadow-md"
+              >
+                Make an Enquiry
+              </a>
+            </div>
+          </div>
+          <p className="text-sm text-gray-600 italic text-center mt-6">
+            If your call is not answered, please share your query via WhatsApp or Telegram.
+          </p>
         </div>
       </main>
 
