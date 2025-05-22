@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { BarChart, Calculator, TrendingUp, Award, Users, BookOpen } from 'lucide-react';
 import StudentDetailsForm, { StudentDetails } from './components/StudentDetailsForm';
 import percentileData from './data/percentileData';
-import DownloadDataButton from './components/excel';
 import PromotionalBanner from './components/PromotionalBanner';
 import PromotionalFooter from './components/PromotionalFooter';
 import SuccessTestimonials from './components/SuccessTestimonials';
@@ -193,7 +192,6 @@ function App() {
         difficulty={difficulty}
         percentile={percentile ?? undefined}
       />
-      <DownloadDataButton />
       <SuccessTestimonials />
       <PromotionalFooter />
     </div>
