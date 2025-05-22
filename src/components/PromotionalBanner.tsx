@@ -9,12 +9,12 @@ const PromotionalBanner: React.FC = () => {
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-orange-500 py-4 relative shadow-md">
       <div className="max-w-5xl mx-auto px-4 flex flex-col items-center justify-center gap-3 text-center">
-        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 w-full">
-          <div className="flex-1 text-left">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 w-full text-center">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-1 flex-wrap">
             <span className="font-extrabold text-lg text-gray-800 drop-shadow-md">
               Engineering Counselling
             </span>
-            <span className="hidden md:inline mx-2 text-gray-800 drop-shadow-md">|</span>
+            <span className="hidden md:inline text-gray-800 drop-shadow-md">|</span>
             <span className="text-base font-semibold text-gray-800 drop-shadow-md">
               Maharashtra's Most Trusted Counselling Batch 5.0 Is Live!
             </span>
@@ -28,7 +28,7 @@ const PromotionalBanner: React.FC = () => {
             Learn More
           </a>
         </div>
-        <div className="text-sm md:pl-[300px] font-semibold text-gray-800 drop-shadow-md w-full md:block hidden text-left">
+        <div className="text-sm font-semibold hidden lg:block text-gray-800 drop-shadow-md w-full text-center">
           Enroll Now At Just <span className="font-extrabold">₹1499</span> — Early Bird Offer!
         </div>
         <button
