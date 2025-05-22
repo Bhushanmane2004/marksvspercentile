@@ -25,7 +25,7 @@ const PromotionalBanner: React.FC = () => {
             rel="noopener noreferrer"
             className="bg-white text-orange-600 px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-100 transition-all duration-200 shadow-md"
           >
-            Learn More
+            Enroll Today
           </a>
         </div>
         <div className="text-sm font-semibold hidden lg:block text-gray-800 drop-shadow-md w-full text-center">
