@@ -12,7 +12,7 @@ const PromotionalBanner: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 w-full">
           <div className="flex-1 text-left">
             <span className="font-extrabold text-lg text-gray-800 drop-shadow-md">
-              MHT-CET 2025 Counselling
+              Engineering Counselling
             </span>
             <span className="hidden md:inline mx-2 text-gray-800 drop-shadow-md">|</span>
             <span className="text-base font-semibold text-gray-800 drop-shadow-md">
