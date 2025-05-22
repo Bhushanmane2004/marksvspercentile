@@ -118,7 +118,7 @@ const StudentDetailsForm: React.FC<StudentDetailsFormProps> = ({
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                12th Percentile
+                12th percentage
               </label>
               <input
                 type="number"

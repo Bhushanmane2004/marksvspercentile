@@ -1,4 +1,3 @@
-// src/App.tsx
 import React, { useState } from 'react';
 import { BarChart, Calculator, TrendingUp, Award, Users, BookOpen } from 'lucide-react';
 import StudentDetailsForm, { StudentDetails } from './components/StudentDetailsForm';
@@ -167,16 +166,16 @@ function App() {
             <h2 className="text-2xl font-bold mb-3">Prepare for MHT-CET 2025 with Rising Education</h2>
             <p className="text-lg mb-6">Join Maharashtra's leading MHT-CET coaching program</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a 
-                href="https://www.risingeducation.in/courses" 
+              <a
+                href="https://www.risingeducation.in/courses"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-blue-600 px-6 py-2 rounded-md font-medium hover:bg-gray-100 transition-colors"
               >
                 Register Now
               </a>
-              <a 
-                href="tel:+919876543210" 
+              <a
+                href="tel:+919876543210"
                 className="bg-transparent border border-white text-white px-6 py-2 rounded-md font-medium hover:bg-white hover:bg-opacity-10 transition-colors"
               >
                 Call Us
@@ -194,7 +193,7 @@ function App() {
         difficulty={difficulty}
         percentile={percentile ?? undefined}
       />
-
+      <DownloadDataButton />
       <SuccessTestimonials />
       <PromotionalFooter />
     </div>
